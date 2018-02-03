@@ -22,8 +22,6 @@ public class ThreadPoolDemo {
         return Executors.newScheduledThreadPool(100);
     }
 
-
-
     public static ExecutorService getCustomerThreadPool() {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor( 25,25,0L, TimeUnit.MILLISECONDS, new
                 LinkedBlockingQueue<Runnable>(15));

@@ -10,17 +10,23 @@ import java.util.concurrent.*;
 public class ThreadPoolDemo {
 
     public static ExecutorService getFixedThreadPool() {
-
         ExecutorService executorService = Executors.newFixedThreadPool(100);
-        executorService.submit(() -> {
-            System.out.println("asdfadf");
-        });
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(25, Integer.MAX_VALUE, 1000, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>(1024));
-        threadPoolExecutor.submit(() -> {
-            System.out.println("hahahahah");
-        });
-        threadPoolExecutor.shutdown();
-        executorService.shutdown();
         return executorService;
+    }
+
+    public static ExecutorService getCachedThreadPool() {
+        return Executors.newCachedThreadPool();
+    }
+
+    public static ExecutorService getSchedualThreadPool() {
+        return Executors.newScheduledThreadPool(100);
+    }
+
+
+
+    public static ExecutorService getCustomerThreadPool() {
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor( 25,25,0L, TimeUnit.MILLISECONDS, new
+                LinkedBlockingQueue<Runnable>(15));
+        return threadPoolExecutor;
     }
 }

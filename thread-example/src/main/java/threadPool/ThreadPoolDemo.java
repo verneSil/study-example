@@ -15,8 +15,7 @@ public class ThreadPoolDemo {
         executorService.submit(() -> {
             System.out.println("asdfadf");
         });
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(25, Integer.MAX_VALUE, 1000, TimeUnit.MILLISECONDS, new
-                LinkedBlockingDeque<Runnable>(1024));
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(25, Integer.MAX_VALUE, 1000, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>(1024));
         threadPoolExecutor.submit(() -> {
             System.out.println("hahahahah");
         });

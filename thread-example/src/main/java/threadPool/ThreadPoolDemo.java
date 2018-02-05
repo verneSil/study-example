@@ -23,8 +23,8 @@ public class ThreadPoolDemo {
     }
 
     public static ExecutorService getCustomerThreadPool() {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor( 25,25,0L, TimeUnit.MILLISECONDS, new
-                LinkedBlockingQueue<Runnable>(15));
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(25, 25, 0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<Runnable>(15));
         return threadPoolExecutor;
     }
 }

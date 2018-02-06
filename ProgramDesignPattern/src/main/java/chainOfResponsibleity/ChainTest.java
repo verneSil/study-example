@@ -1,6 +1,7 @@
 package chainOfResponsibleity;
 
 import chainOfResponsibleity.component.CustomeHandler;
+import chainOfResponsibleity.component.Handler;
 
 /**
  * @author verne on 18-2-5.
@@ -8,7 +9,8 @@ import chainOfResponsibleity.component.CustomeHandler;
  */
 
 public class ChainTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException,
+            InstantiationException {
         CustomeHandler customeHandler1 = new CustomeHandler();
         CustomeHandler customeHandler2 = new CustomeHandler();
         CustomeHandler customeHandler3 = new CustomeHandler();

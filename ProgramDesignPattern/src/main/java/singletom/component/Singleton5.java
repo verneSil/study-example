@@ -1,6 +1,5 @@
 package singletom.component;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 
 /**
  * @author verne on 18-2-5.

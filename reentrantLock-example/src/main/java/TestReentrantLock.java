@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 
 public class TestReentrantLock {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("haha");
         Lock lock = new ReentrantLock();
         lock.lock();
@@ -18,6 +18,7 @@ public class TestReentrantLock {
         FutureTask futureTask = new FutureTask(() -> {
             return "gg";
         });
+        write.await();
         String o = new String();
         futureTask.run();
         System.out.println("isDone: " + futureTask.isDone());

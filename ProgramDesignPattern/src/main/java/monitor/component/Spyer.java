@@ -30,7 +30,7 @@ public class Spyer {
 
     public void infoMonitors() {
         monitors.stream().forEach(aMonitor -> {
-            aMonitor.doAfterUpdate(this.forUpdate);
+            aMonitor.doAfterUpdate(this);
         });
     }
     public void update(String updateString) {

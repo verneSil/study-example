@@ -8,6 +8,7 @@ import createArray.RandomArray;
  */
 
 public class QuickSortTest {
+    //http://blog.csdn.net/justperseve/article/details/51279407
     public static void main(String[] args) {
 //        int[] randomArray = RandomArray.createRandomArray(10);
 //        System.out.println("original:");

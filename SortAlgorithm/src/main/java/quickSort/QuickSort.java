@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static int flag= 0;
-    public void sort(int[] a,int low,int high){
+    public static void sort(int[] a,int low,int high){
         int start = low;
         int end = high;
         int key = a[low];
@@ -102,5 +102,50 @@ public class QuickSort {
             mySort1(array1, end + 1, high);
         }
 
+    }
+
+    public static void mySort2(int[] array, int low, int high) {
+
+        if (low >= high) {
+            return;
+        }
+
+        int start = low;
+        int end = high;
+        int key = array[low];
+
+        System.out.println(".");
+        while (start < end) {
+            System.out.println("?");
+            while (start < end && array[end] > key) {
+                end--;
+            }
+
+            if (array[end] < array[start]) {
+                int tmp = array[end];
+                array[end] = array[start];
+                array[start] = tmp;
+            }
+
+            while (start < end && array[start] <= key) {
+                start++;
+            }
+
+            if (array[start] > array[end]) {
+                int tmp = array[end];
+                array[end] = array[start];
+                array[start] = tmp;
+            }
+        }
+
+        array[start] = key;
+
+        if (low < start) {
+            mySort2(array, low, start - 1);
+        }
+
+        if (high > end) {
+            mySort2(array, end + 1, high);
+        }
     }
 }

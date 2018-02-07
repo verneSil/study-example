@@ -16,9 +16,9 @@ public class QuickSortTest {
 //        QuickSort quickSort = new QuickSort();
 //        quickSort.sort(randomArray,0,randomArray.length - 1);
 //        RandomArray.printArray(randomArray);
-        int[] randomArray = RandomArray.createRandomArray(1000,65535);
-        QuickSort.mySort1(randomArray, 0, randomArray.length - 1);
-
+        int[] randomArray = RandomArray.createRandomArray(25);
+        RandomArray.printArray(randomArray);
+        QuickSort.mySort2(randomArray, 0, randomArray.length - 1);
         RandomArray.printArray(randomArray);
 
     }

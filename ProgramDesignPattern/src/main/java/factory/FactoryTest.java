@@ -10,8 +10,10 @@ import factory.component.airplaneComponent.BY747Factory;
 
 public class FactoryTest {
     public static void main(String[] args) {
+        //all interface could transfer from interface to abstract class
+        BY747Factory by747Factory = new BY747Factory();
         BY747 by747 =
-                BY747Factory.createBY747();
+                by747Factory.createAriPlane();
         System.out.println(by747);
 
     }

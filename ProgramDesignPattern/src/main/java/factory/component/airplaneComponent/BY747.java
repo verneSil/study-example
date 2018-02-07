@@ -5,7 +5,7 @@ package factory.component.airplaneComponent;
  * @version 1.0
  */
 
-public class BY747 {
+public class BY747 implements AirPlane{
     private Seat seat;
     private Stewardess stewardess;
 

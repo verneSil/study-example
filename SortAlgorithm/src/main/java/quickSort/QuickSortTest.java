@@ -19,7 +19,7 @@ public class QuickSortTest {
 //        RandomArray.printArray(randomArray);
         int[] randomArray = RandomArray.createRandomArray(25);
         RandomArray.printArray(randomArray);
-        QuickSort.mySort2(randomArray, 0, randomArray.length - 1);
+        QuickSort.mySort3(randomArray, 0, randomArray.length - 1);
         RandomArray.printArray(randomArray);
 
     }

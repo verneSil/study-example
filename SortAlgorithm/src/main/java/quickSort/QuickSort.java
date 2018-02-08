@@ -148,4 +148,45 @@ public class QuickSort {
             mySort2(array, end + 1, high);
         }
     }
+
+    public static void mySort3(int[] array, int low, int high) {
+
+        if (low >= high) {
+            return;
+        }
+
+        int start = low;
+        int end = high;
+        int key = array[low];
+
+        while (start < end) {
+
+            while (start < end && array[end] >= key) {
+                end--;
+            }
+            if ( array[end] <= array[start]) {
+                int temp = 0;
+                temp = array[start];
+                array[start] = array[end];
+                array[end] = temp;
+            }
+
+            while (start < end && array[start] <= key) {
+                start++;
+            }
+            if (array[end] >= array[start]) {
+                int temp = array[start];
+                array[start] = array[end];
+                array[end] = temp;
+            }
+        }
+
+        array[start] = key;
+        if (start > low) {
+            mySort3(array, low, start - 1);
+        }
+        if (end < high) {
+            mySort3(array, end + 1, high);
+        }
+    }
 }

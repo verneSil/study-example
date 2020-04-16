@@ -1,6 +1,6 @@
 import threadPool.ThreadPoolDemo;
 
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.*;
 
 /**
  * @author verne on 18-2-3.
@@ -31,6 +31,23 @@ public class ThreadTest {
         customerThreadPool.execute(() -> {
             System.out.println("customer thread pool");
         });
+        Future<String> submit = customerThreadPool.submit(() -> {
+            return new String("gggggg");
+        });
+        int countTimes = 1;
+        while (!submit.isDone() && 0 != countTimes++) {
+            System.out.println("you have waited for " + countTimes++ + " times");
+            try {
+                String s = submit.get(1000, TimeUnit.MILLISECONDS);
+                System.out.println(s);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (TimeoutException e) {
+                e.printStackTrace();
+            }
+        }
         customerThreadPool.shutdown();
     }
 

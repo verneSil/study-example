@@ -1,3 +1,5 @@
+package reverselist;
+
 public class NodeTools {
 
     public static MyNode initialRandomNodes(int count) {

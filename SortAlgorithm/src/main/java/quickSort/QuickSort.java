@@ -2,8 +2,6 @@ package quickSort;
 
 import createArray.RandomArray;
 
-import java.util.Arrays;
-
 /**
  * @author verne on 18-2-7.
  * @version 1.0
@@ -11,20 +9,21 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    public static int flag= 0;
-    public static void sort(int[] a,int low,int high){
+    public static int flag = 0;
+
+    public static void sort(int[] a, int low, int high) {
         int start = low;
         int end = high;
         int key = a[low];
 
 
-        while(end>start){
+        while (end > start) {
             //从后往前比较
-            while(end>start&&a[end]>=key)  //如果没有比关键值小的，比较下一个，直到有比关键值小的交换位置，然后又从前往后比较
+            while (end > start && a[end] >= key)  //如果没有比关键值小的，比较下一个，直到有比关键值小的交换位置，然后又从前往后比较
             {
                 end--;
             }
-            if(a[end]<=key){
+            if (a[end] <= key) {
                 int temp = a[end];
                 a[end] = a[start];
                 a[start] = temp;
@@ -37,11 +36,11 @@ public class QuickSort {
                 RandomArray.printArray(a);
             }
             //从前往后比较
-            while(end>start&&a[start]<=key)//如果没有比关键值大的，比较下一个，直到有比关键值大的交换位置
+            while (end > start && a[start] <= key)//如果没有比关键值大的，比较下一个，直到有比关键值大的交换位置
             {
                 start++;
             }
-            if(a[start]>=key){
+            if (a[start] >= key) {
                 int temp = a[start];
                 a[start] = a[end];
                 a[end] = temp;
@@ -58,11 +57,11 @@ public class QuickSort {
         flag++;
         RandomArray.printArray(a);
         //递归
-        if(start>low) {
-            sort(a,low,start-1);//左边序列。第一个索引位置到关键值索引-1
+        if (start > low) {
+            sort(a, low, start - 1);//左边序列。第一个索引位置到关键值索引-1
         }
-        if(end<high) {
-            sort(a,end+1,high);//右边序列。从关键值索引+1到最后一个
+        if (end < high) {
+            sort(a, end + 1, high);//右边序列。从关键值索引+1到最后一个
         }
     }
 
@@ -72,8 +71,8 @@ public class QuickSort {
             return;
         }
 
-        int start= low;
-        int end= high;
+        int start = low;
+        int end = high;
         int key = array1[start];
         while (start < end) {
             while (start < end && array1[end] <= key) { //找到第一个比key小的数字
@@ -229,37 +228,76 @@ public class QuickSort {
     }
 
 
-    public static void quickSort5(int[] array, int low, int high) {
-        int start = low;
-        int end = high;
-        int key = array[low];
+    public static void quickSort5(int[] array, int start, int end) {
+        int head = start;
+        int tail = end;
+        int key = array[start];
 
-        while (start < end) {
-            while (start < end && array[end] >= key) {
-                end --;
+        while (head < tail) {
+            while (head < tail && array[tail] >= key) {
+                tail--;
             }
-            if (array[end] < array[start]) {
-                int temp = array[end];
-                array[end] = array[start];
-                array[start] = temp;
-            }
-
-            while (start < end && array[start] <= key) {
-                start++;
+            if (array[tail] < array[head]) {
+                int temp = array[tail];
+                array[tail] = array[head];
+                array[head] = temp;
             }
 
-            if (array[start] < array[start]) {
-                int temp = array[end];
-                array[end] = array[start];
-                array[start] = temp;
+            while (head < tail && array[head] <= key) {
+                head++;
+            }
+
+            if (array[head] < array[head]) {
+                int temp = array[tail];
+                array[tail] = array[head];
+                array[head] = temp;
             }
         }
-        array[end] = key;
-        if (start > low) {
-            quickSort5(array, low, start - 1);
+        array[tail] = key;
+        if (head > start) {
+            quickSort5(array, start, head - 1);
         }
-        if (end < high) {
-            quickSort5(array, end + 1, high);
+        if (tail < end) {
+            quickSort5(array, tail + 1, end);
+        }
+    }
+
+    public static void quickSort6(int[] array) {
+        int start = 0;
+        int end = array.length - 1;
+        doQuickSort(array, start, end);
+    }
+
+    private static void doQuickSort(int[] array, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int head = start;
+        int tail = end;
+        int exam = array[start];// 这只是一个基准
+        while (head < tail) {
+            while (head < tail && array[tail] >= exam) {
+                tail--;
+            }
+            if (array[head] > array[tail]) {
+                RandomArray.swapArray(array, head, tail);
+            }
+
+            while (head < tail && array[head] <= exam) {
+                head++;
+            }
+            if (array[head] > array[tail]) {
+                RandomArray.swapArray(array, head, tail);
+            }
+
+
+        }
+
+        if (head > start) {
+            doQuickSort(array, start, head - 1);
+        }
+        if (tail < end) {
+            doQuickSort(array, tail + 1, end);
         }
     }
 }

@@ -72,4 +72,10 @@ public class RandomArray {
         System.out.println();
         System.out.println("================== end ===================");
     }
+
+    public static void swapArray(int[] array, int i, int j) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
 }

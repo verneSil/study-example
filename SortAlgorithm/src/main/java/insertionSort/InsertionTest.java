@@ -10,7 +10,9 @@ import createArray.RandomArray;
 public class InsertionTest {
     public static void main(String[] args) {
         int[] randomArray = RandomArray.createRandomArray();
-        InsertionSort.sort(randomArray);
         RandomArray.printArray(randomArray);
+        InsertionSort.sort2(randomArray);
+        RandomArray.printArray(randomArray);
+        RandomArray.isSorted(RandomArray.ArrayAsc, randomArray);
     }
 }

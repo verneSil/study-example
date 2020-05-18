@@ -10,8 +10,10 @@ import createArray.RandomArray;
 public class BubbleTest {
     public static void main(String[] args) {
         int[] randomArray = RandomArray.createRandomArray();
+        RandomArray.printArray(randomArray);
+        BubbleSort.BubbleSort2(randomArray);
+        RandomArray.printArray(randomArray);
         BubbleSort.BubbleSort(randomArray);
         RandomArray.printArray(randomArray);
-
     }
 }

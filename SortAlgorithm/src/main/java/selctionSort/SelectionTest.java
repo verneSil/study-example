@@ -9,8 +9,10 @@ import createArray.RandomArray;
 
 public class SelectionTest {
     public static void main(String[] args) {
-        int[] randomArray = RandomArray.createRandomArray();
+        int[] randomArray = RandomArray.createRandomArray(20, 10000);
+        RandomArray.printArray(randomArray);
         SelectionSort.selectionSort(randomArray);
         RandomArray.printArray(randomArray);
+        RandomArray.isSorted(RandomArray.ArrayDesc, randomArray);
     }
 }

@@ -2,7 +2,9 @@ package lessmovearrays;
 
 import java.util.Random;
 
+// 没有写出来.不管了....:)
 public class LessMoveTest {
+
     public static void main(String[] args) {
         int[] elements = initElement();
         print(elements);

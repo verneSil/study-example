@@ -11,6 +11,7 @@ public class SumExampleTest {
       ForkJoinPool forkJoinPool = new ForkJoinPool(10);
       SumTask sumTask = new SumTask(1, 1000);
       Integer invoke = forkJoinPool.invoke(sumTask);
+      forkJoinPool.shutdown();
       System.out.println(invoke.intValue());
    }
 

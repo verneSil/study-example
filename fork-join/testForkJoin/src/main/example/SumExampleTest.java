@@ -16,8 +16,8 @@ public class SumExampleTest {
    }
 
    private static class SumTask extends RecursiveTask<Integer> {
-      int from;
-      int to;
+      private int from;
+      private int to;
 
       public SumTask(int from, int to) {
          this.from = from;
